@@ -30,15 +30,17 @@ a { color: #7b8aff; }
 <p>We do not collect personal information such as your name, email address, phone number or contacts, and we do not collect your precise location. The Game does not require an account or login.</p>
 <p>The following data is collected automatically while you play, through the third-party services described below:</p>
 <ul>
-<li><strong>Gameplay events</strong>: games and puzzles started and finished, your scores, how many moves a game or puzzle took, the difficulty level and chain reactions reached, whether the offer to continue a game was used, and when and how often you play. Used to understand how the Game is played and to improve it. In the EEA, the UK and Switzerland, the Game's analytics only runs if you consent (see section 4).</li>
+<li><strong>Gameplay events</strong>: games, levels and puzzles started and finished, which try at a level a game is, your scores and stars, how many moves and how long a game took, the chain reactions and combos reached, hints, whether the offer to continue a game was used, how the tutorial went, the frame rate the Game ran at, and when and how often you play. Used to understand how the Game is played and to improve it. In the EEA, the UK and Switzerland, the Game's analytics only runs if you consent (see section 4).</li>
+<li><strong>Crash data</strong>: crash reports and error logs, with the device model, operating system and app version, and what was being played at the time. Used to find and fix bugs.</li>
 <li><strong>Device information</strong>: such as device model, operating system version, language, region and time zone settings, mobile carrier, screen size and connection type. Used for analytics and to show ads that fit your device.</li>
-<li><strong>Device and app identifiers</strong>: identifiers assigned to the app installation by our analytics service, and your device's advertising identifier (on iPhone, only if you allow tracking). Used to count players and sessions, and for advertising.</li>
+<li><strong>Device and app identifiers</strong>: identifiers assigned to the app installation by our analytics and crash reporting services, and your device's advertising identifier (on iPhone, only if you allow tracking). Used to count players and sessions, and for advertising.</li>
 <li><strong>Approximate location</strong>: your country or region, inferred from your IP address. Used for analytics and to show ads suited to your region.</li>
 <li><strong>Ad interactions</strong>: which ads were shown, watched or tapped, and ad revenue. Used to show and measure ads and to prevent ad fraud.</li>
+<li><strong>Purchase history</strong>: if you buy Remove Ads, what was bought, its price and currency, the store's order details and the device model and operating system. Used to deliver the purchase, to report on sales and to understand how the Game is played (see section 6).</li>
 </ul>
 
 <h2>2. Data Stored on Your Device</h2>
-<p>Your progress (the game you are in the middle of, your best score and the daily puzzle you have finished) and your settings (sound and music) are saved locally on your device. They are never transmitted to us, and deleting the Game deletes them.</p>
+<p>Your progress (the game you are in the middle of, your best score, the puzzle levels you have solved, how many tries the level you are on has taken, and the daily puzzle you have finished) and your settings (sound and music) are saved locally on your device. They are never transmitted to us, and deleting the Game deletes them.</p>
 
 <h2>3. Advertising</h2>
 <p>The Game is free and shows ads: full-screen ads between games, and video ads you can choose to watch for a puzzle hint or to continue a game. They are served through <strong>Unity LevelPlay</strong>, which chooses ads from advertising networks including ironSource Ads and Unity Ads. These services receive the device information, advertising identifier, approximate location and ad interactions described above, to show ads, measure them, prevent fraud and, where you allow it, personalize them.</p>
@@ -51,21 +53,21 @@ a { color: #7b8aff; }
 
 <h2>4. Your Consent in the EEA, UK and Switzerland</h2>
 <p>When you first open the Game in the European Economic Area, the UK or Switzerland, it asks for your consent, using Google's consent tool, before the Game or our advertising partners store or access information on your device for personalized ads, ad measurement or analytics. You can consent, decline, or choose by purpose and by partner. Your choice is stored on your device and passed to our advertising partners in the standard IAB Transparency &amp; Consent Framework format.</p>
-<p>If you decline, the Game's analytics stays switched off and the ads you see are not personalized.</p>
+<p>If you decline, the Game's analytics stays switched off and the ads you see are not personalized. Crash reports are still sent, so that we can fix problems (see section 10).</p>
 <p>You can change your choice at any time in the Game: open <strong>Settings</strong> and tap <strong>Privacy Options</strong>.</p>
 
 <h2>5. Third-Party Services</h2>
 <p>We do not sell your personal information for money. We share it only with these service providers, which process it to run the features above, each under its own privacy policy:</p>
 <ul>
-<li><strong>GameAnalytics</strong>: gameplay analytics. <a href="https://gameanalytics.com/privacy">GameAnalytics Privacy Policy</a></li>
-<li><strong>Unity Technologies</strong>: Unity LevelPlay (ad mediation), ironSource Ads and Unity Ads. <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a></li>
-<li><strong>Google</strong>: Google's consent tool (the User Messaging Platform, which asks for consent in the EEA, the UK and Switzerland) and Google Play (purchases on Android). <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+<li><strong>Google</strong>: Google Analytics for Firebase (gameplay analytics), Firebase Crashlytics (crash reports), Google's consent tool (the User Messaging Platform, which asks for consent in the EEA, the UK and Switzerland) and Google Play (purchases on Android). <a href="https://policies.google.com/privacy">Google Privacy Policy</a>, <a href="https://firebase.google.com/support/privacy">Privacy and Security in Firebase</a></li>
+<li><strong>Unity Technologies</strong>: Unity LevelPlay (ad mediation), ironSource Ads, Unity Ads and Unity In-App Purchasing (purchase reporting). <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a></li>
 <li><strong>Apple</strong>: the App Store (purchases on iPhone). <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
 </ul>
 <p>Under some laws (such as California's), sharing information with advertising partners for personalized ads can count as "selling" or "sharing". You can opt out at any time with your device's ad settings described above. We may also disclose information if the law requires it, or to protect the rights and safety of our players and ourselves.</p>
 
 <h2>6. In-App Purchases</h2>
-<p>The Game offers one optional purchase, Remove Ads. Purchases are processed entirely by the App Store or Google Play, under their own terms and privacy policies. We never receive your payment information. That you have bought Remove Ads is remembered on your device, and the store's record of your purchases is used to restore it, for example on a new device.</p>
+<p>The Game offers one optional purchase, Remove Ads. Purchases are processed entirely by the App Store or Google Play, under their own terms and privacy policies. We receive confirmation of what was bought, never your payment information. That you have bought Remove Ads is remembered on your device, and the store's record of your purchases is used to restore it, for example on a new device.</p>
+<p>The Game handles the purchase with Unity In-App Purchasing, which reports it (the item, its price and currency, the store's order and transaction details, the device model and operating system and, on iPhone, the identifier Apple gives our apps on your device) to Unity Technologies, to provide sales reporting. It does not receive your payment information or your advertising identifier. The Game's analytics (Google Analytics for Firebase, section 5) also records the purchase: the item, its price and currency, and the store's order number.</p>
 
 <h2>7. Apple and Google</h2>
 <p>Apple and Google may share anonymous crash reports and app analytics with us if you have chosen to share them with app developers in your device settings. If you test the Game through TestFlight, Apple may also share crash reports, usage information and any feedback you choose to send with us, as described in Apple's TestFlight terms. We use this information only to fix problems and improve the Game.</p>
@@ -75,14 +77,15 @@ a { color: #7b8aff; }
 
 <h2>9. Data Retention</h2>
 <ul>
-<li>Analytics data is kept by GameAnalytics according to its data retention policy.</li>
+<li>Analytics data is kept for up to 14 months, then deleted.</li>
+<li>Crash reports are kept for 90 days.</li>
 <li>Advertising partners keep data according to their own policies, linked above.</li>
 <li>We do not keep a separate database of player data.</li>
 </ul>
 
 <h2>10. Your Rights</h2>
 <p>Depending on where you live (for example under the GDPR in the EEA and UK, or California law), you may have the right to access, correct or delete your information, to object to or restrict its use, and to withdraw consent. Contact us to make a request; because the Game has no accounts, we may need an identifier from your device to find your data. Uninstalling the Game stops all collection.</p>
-<p>Where the GDPR applies, we rely on your consent for analytics and personalized ads.</p>
+<p>Where the GDPR applies, we rely on your consent for analytics and personalized ads, and on our legitimate interest in keeping the Game stable and secure for crash reports.</p>
 
 <h2>11. Security and International Transfers</h2>
 <p>Data is sent over encrypted connections. Our service providers may process it in the United States and other countries, with the safeguards those providers put in place.</p>
