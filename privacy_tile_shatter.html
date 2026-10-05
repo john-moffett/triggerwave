@@ -33,7 +33,7 @@ a { color: #7b8aff; }
 <li><strong>Gameplay events</strong>: games, levels and puzzles started and finished, which try at a level a game is, your scores and stars, how many moves and how long a game took, the chain reactions and combos reached, hints, whether the offer to continue a game was used, how the tutorial went, the frame rate the Game ran at, and when and how often you play. Used to understand how the Game is played and to improve it. In the EEA, the UK and Switzerland, the Game's analytics only runs if you consent (see section 4).</li>
 <li><strong>Crash data</strong>: crash reports and error logs, with the device model, operating system and app version, and what was being played at the time. Used to find and fix bugs.</li>
 <li><strong>Device information</strong>: such as device model, operating system version, language, region and time zone settings, mobile carrier, screen size and connection type. Used for analytics and to show ads that fit your device.</li>
-<li><strong>Device and app identifiers</strong>: identifiers assigned to the app installation by our analytics and crash reporting services, and your device's advertising identifier (on iPhone, only if you allow tracking). Used to count players and sessions, and for advertising.</li>
+<li><strong>Device and app identifiers</strong>: identifiers assigned to the app installation by our analytics and crash reporting services, and your device's advertising identifier (on iPhone, only if you allow tracking). Used to count players and sessions, for the ads shown in the Game, and to measure our own ads for the Game (see section 3).</li>
 <li><strong>Approximate location</strong>: your country or region, inferred from your IP address. Used for analytics and to show ads suited to your region.</li>
 <li><strong>Ad interactions</strong>: which ads were shown, watched or tapped, and ad revenue. Used to show and measure ads and to prevent ad fraud.</li>
 <li><strong>Purchase history</strong>: if you buy Remove Ads, what was bought, its price and currency and the store's order number. Used to report on sales and to understand how the Game is played (see section 6).</li>
@@ -45,6 +45,7 @@ a { color: #7b8aff; }
 <h2>3. Advertising</h2>
 <p>The Game is free and shows ads: full-screen ads between games, and video ads you can choose to watch for a puzzle hint or to continue a game. They are served through <strong>Unity LevelPlay</strong>, which chooses ads from advertising networks including ironSource Ads and Unity Ads. These services receive the device information, advertising identifier, approximate location and ad interactions described above, to show ads, measure them, prevent fraud and, where you allow it, personalize them.</p>
 <p>You can buy <strong>Remove Ads</strong> in the Game's Settings. It removes all ads, and hints and continues are then free.</p>
+<p>We also advertise the Game itself. To see how those ads perform, the Game's analytics (Google Analytics for Firebase) tells Google's advertising service, <strong>Google Ads</strong>, that the Game was installed and how it is played, together with your advertising identifier. This is used to measure and improve our advertising, not to build a profile of you for personalized ads. In the EEA, the UK and Switzerland it only happens if you consent (see section 4).</p>
 <ul>
 <li><strong>iPhone:</strong> the advertising identifier is only available if you allow tracking. You can change this at any time in Settings &gt; Privacy &amp; Security &gt; Tracking.</li>
 <li><strong>Android:</strong> you can reset or delete your advertising ID, or opt out of ads personalization, in Settings &gt; Google &gt; Ads (or Settings &gt; Privacy &gt; Ads, depending on your device).</li>
@@ -53,13 +54,13 @@ a { color: #7b8aff; }
 
 <h2>4. Your Consent in the EEA, UK and Switzerland</h2>
 <p>When you first open the Game in the European Economic Area, the UK or Switzerland, it asks for your consent, using Google's consent tool, before the Game or our advertising partners store or access information on your device for personalized ads, ad measurement or analytics. You can consent, decline, or choose by purpose and by partner. Your choice is stored on your device and passed to our advertising partners in the standard IAB Transparency &amp; Consent Framework format.</p>
-<p>If you decline, the Game's analytics stays switched off and the ads you see are not personalized. Crash reports are still sent, so that we can fix problems (see section 10).</p>
+<p>If you decline, the Game's analytics stays switched off, nothing is sent to measure our own advertising, and the ads you see are not personalized. Crash reports are still sent, so that we can fix problems (see section 10).</p>
 <p>You can change your choice at any time in the Game: open <strong>Settings</strong> and tap <strong>Privacy Options</strong>.</p>
 
 <h2>5. Third-Party Services</h2>
 <p>We do not sell your personal information for money. We share it only with these service providers, which process it to run the features above, each under its own privacy policy:</p>
 <ul>
-<li><strong>Google</strong>: Google Analytics for Firebase (gameplay analytics), Google BigQuery (our copy of the analytics data), Firebase Crashlytics (crash reports), Google's consent tool (the User Messaging Platform, which asks for consent in the EEA, the UK and Switzerland) and Google Play (purchases on Android). <a href="https://policies.google.com/privacy">Google Privacy Policy</a>, <a href="https://firebase.google.com/support/privacy">Privacy and Security in Firebase</a></li>
+<li><strong>Google</strong>: Google Analytics for Firebase (gameplay analytics), Google BigQuery (our copy of the analytics data), Google Ads (measuring our own advertising), Firebase Crashlytics (crash reports), Google's consent tool (the User Messaging Platform, which asks for consent in the EEA, the UK and Switzerland) and Google Play (purchases on Android). <a href="https://policies.google.com/privacy">Google Privacy Policy</a>, <a href="https://firebase.google.com/support/privacy">Privacy and Security in Firebase</a></li>
 <li><strong>Unity Technologies</strong>: Unity LevelPlay (ad mediation), ironSource Ads and Unity Ads. <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a></li>
 <li><strong>Apple</strong>: the App Store (purchases on iPhone). <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
 </ul>
@@ -85,7 +86,7 @@ a { color: #7b8aff; }
 
 <h2>10. Your Rights</h2>
 <p>Depending on where you live (for example under the GDPR in the EEA and UK, or California law), you may have the right to access, correct or delete your information, to object to or restrict its use, and to withdraw consent. Contact us to make a request; because the Game has no accounts, we may need an identifier from your device to find your data. Uninstalling the Game stops all collection.</p>
-<p>Where the GDPR applies, we rely on your consent for analytics and personalized ads, and on our legitimate interest in keeping the Game stable and secure for crash reports.</p>
+<p>Where the GDPR applies, we rely on your consent for analytics, ad measurement and personalized ads, and on our legitimate interest in keeping the Game stable and secure for crash reports.</p>
 
 <h2>11. Security and International Transfers</h2>
 <p>Data is sent over encrypted connections. Our service providers may process it in the United States and other countries, with the safeguards those providers put in place.</p>
