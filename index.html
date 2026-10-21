@@ -1,26 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triggerwave</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a14; color: #e0e0e0; }
-        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
-        h1 { color: #f0d826; font-size: 2rem; margin-bottom: 8px; }
-        p.tagline { color: #888; margin-bottom: 40px; }
-        a { color: #7b8aff; }
-        .links a { display: inline-block; margin-right: 24px; font-size: 1.1rem; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magnitude: Kaiju Destruction · TriggerWave</title>
+<meta name="description" content="Giant monster city smash: stomp cities, swat jets and grow huge. A free kaiju game for iPhone and Android from TriggerWave.">
+<meta name="theme-color" content="#070b16">
+<meta name="apple-itunes-app" content="app-id=6817035753">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TriggerWave">
+<meta property="og:url" content="https://triggerwave.com/">
+<meta property="og:title" content="Magnitude: Kaiju Destruction">
+<meta property="og:description" content="Giant monster city smash: stomp cities, swat jets and grow huge. Free on iPhone and Android.">
+<meta property="og:image" content="https://triggerwave.com/assets/share.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://triggerwave.com/">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/hero-tall.webp" media="(max-width: 899px)">
+<link rel="preload" as="image" href="/assets/hero-wide.webp" media="(min-width: 900px)">
+<link rel="preload" as="font" href="/assets/fonts/BigShouldersDisplay-Black.ttf" type="font/ttf" crossorigin>
+<style>
+@font-face { font-family: "Big Shoulders"; src: url("/assets/fonts/BigShouldersDisplay-Black.ttf") format("truetype"); font-weight: 900; font-display: swap; }
+@font-face { font-family: "Libre Franklin"; src: url("/assets/fonts/LibreFranklin-Medium.otf") format("opentype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Libre Franklin"; src: url("/assets/fonts/LibreFranklin-SemiBold.otf") format("opentype"); font-weight: 600; font-display: swap; }
+:root {
+  --ink: #070b16; --ink-2: #0c1426; --line: rgba(150, 200, 255, 0.14);
+  --text: #eaf2ff; --muted: #9fb2d2; --cyan: #58e8ff; --on-cyan: #03131c;
+  --display: "Big Shoulders", "Arial Narrow", Impact, sans-serif;
+  --body: "Libre Franklin", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: var(--ink); -webkit-text-size-adjust: 100%; }
+body { background: var(--ink); color: var(--text); font: 500 16px/1.6 var(--body); overflow-x: hidden; }
+a { color: inherit; }
+img, video { display: block; max-width: 100%; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* the studio's bar, over the hero */
+.bar { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between;
+  padding: max(16px, env(safe-area-inset-top)) 20px 0; }
+.studio { font: 900 18px/1 var(--display); letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; color: #fff; }
+.bar nav a { font-size: 14px; font-weight: 600; text-decoration: none; color: rgba(255, 255, 255, 0.82); margin-left: 18px; }
+.bar nav a:hover { color: #fff; }
+
+/* the hero: on a phone the name over the sky, the kaiju between, the store under it */
+.hero { position: relative; isolation: isolate; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 84px 20px max(28px, env(safe-area-inset-bottom)); overflow: hidden; }
+.hero picture { position: absolute; inset: 0; z-index: -2; }
+.hero picture img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to bottom, rgba(7, 11, 22, 0.62) 0%, rgba(7, 11, 22, 0.1) 30%, rgba(7, 11, 22, 0) 52%, rgba(7, 11, 22, 0.78) 80%, var(--ink) 100%); }
+.kicker { font: 900 14px/1 var(--display); letter-spacing: 0.34em; text-transform: uppercase; color: var(--cyan); }
+.name { font: 900 min(176px, calc((100vw - 40px) / 4.3))/0.84 var(--display); letter-spacing: -0.005em; color: #fff; margin: 10px 0 14px;
+  text-shadow: 0 6px 40px rgba(7, 11, 22, 0.45); }
+.lede { font-size: 18px; line-height: 1.45; max-width: 26ch; text-shadow: 0 2px 16px rgba(7, 11, 22, 0.7); }
+
+/* the store buttons: the visitor's store first and bright (store.js), the other quieter */
+.stores { display: flex; flex-direction: column; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 26px; border-radius: 14px;
+  font: 600 17px/1.2 var(--body); text-decoration: none; text-align: center; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.btn:active { transform: scale(0.98); }
+.btn.go { background: var(--cyan); color: var(--on-cyan); box-shadow: 0 10px 34px rgba(88, 232, 255, 0.32); }
+.btn.go:hover { box-shadow: 0 12px 40px rgba(88, 232, 255, 0.5); }
+.btn.alt { background: rgba(255, 255, 255, 0.08); color: var(--text); border: 1px solid rgba(255, 255, 255, 0.24); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.btn.alt:hover { background: rgba(255, 255, 255, 0.14); }
+.btn.minor { min-height: 0; padding: 4px 0; background: none; border: 0; box-shadow: none; font-size: 15px; font-weight: 500; color: var(--muted);
+  text-decoration: underline; text-underline-offset: 3px; }
+.note { font-size: 14px; color: var(--muted); margin-top: 12px; max-width: 42ch; }
+.note[hidden] { display: none; }
+.fine { font-size: 13px; color: var(--muted); margin-top: 10px; letter-spacing: 0.02em; }
+
+/* the game played: a phone with the loop, and what it is */
+.section { padding: 72px 20px; }
+.play { display: grid; gap: 40px; max-width: 1080px; margin: 0 auto; }
+.phone { width: min(76vw, 330px); aspect-ratio: 9 / 16; margin: 0 auto; padding: 9px; border-radius: 38px; background: #10192d;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 80px rgba(88, 232, 255, 0.12); }
+.phone video, .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; background: #000; }
+h2 { font: 900 clamp(40px, 10vw, 64px)/0.95 var(--display); text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: 18px; }
+h2 em { font-style: normal; color: var(--cyan); }
+.play p { font-size: 18px; color: #d6e2f5; max-width: 46ch; }
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 12px; margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); list-style: none; }
+.stats b { display: block; font: 900 44px/1 var(--display); color: var(--cyan); }
+.stats span { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* the store's screenshots: a strip to swipe on a phone, a grid on a wide screen */
+.shots { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 20px 8px; scrollbar-width: none; }
+.shots::-webkit-scrollbar { display: none; }
+.shots img { flex: 0 0 86vw; width: 86vw; height: auto; aspect-ratio: 16 / 9; border-radius: 14px; scroll-snap-align: center; background: var(--ink-2); }
+.swipe { font-size: 13px; color: var(--muted); text-align: center; margin-top: 12px; }
+
+.features { display: grid; gap: 14px; max-width: 1080px; margin: 0 auto; list-style: none; }
+.features li { padding: 24px 22px; border-radius: 18px; background: var(--ink-2); border: 1px solid var(--line); }
+.features h3 { font: 900 26px/1 var(--display); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 10px; }
+.features h3::before { content: ""; display: block; width: 28px; height: 3px; border-radius: 2px; background: var(--cyan); margin-bottom: 14px; }
+.features p { color: #c9d6ea; font-size: 16px; }
+
+.trailer { display: block; position: relative; max-width: 1080px; margin: 0 auto; border-radius: 20px; overflow: hidden; text-decoration: none;
+  box-shadow: 0 0 0 1px var(--line), 0 30px 70px rgba(0, 0, 0, 0.5); }
+.trailer img { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.trailer::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 11, 22, 0.85), rgba(7, 11, 22, 0) 55%); }
+.trailer .label { position: absolute; z-index: 1; left: 20px; bottom: 18px; display: flex; align-items: center; gap: 14px; font: 900 26px/1 var(--display);
+  text-transform: uppercase; letter-spacing: 0.04em; color: #fff; }
+.trailer .label i { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--cyan); }
+.trailer .label i::before { content: ""; margin-left: 4px; border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent var(--on-cyan); }
+.trailer:hover .label i { box-shadow: 0 0 30px rgba(88, 232, 255, 0.6); }
+
+.get { text-align: center; max-width: 640px; margin: 0 auto; }
+.get h2 { margin-bottom: 10px; }
+.get > p { color: var(--muted); margin-bottom: 26px; }
+.get .stores { align-items: stretch; }
+.get .note { margin-left: auto; margin-right: auto; }
+.qr { display: none; }
+
+footer { border-top: 1px solid var(--line); padding: 28px 20px max(36px, env(safe-area-inset-bottom)); display: flex; flex-wrap: wrap; gap: 10px 22px;
+  justify-content: center; font-size: 14px; color: var(--muted); }
+footer a { color: var(--muted); text-underline-offset: 3px; }
+footer a:hover { color: var(--text); }
+
+@media (min-width: 600px) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  .features { grid-template-columns: repeat(2, 1fr); }
+  .shots img { flex-basis: 560px; width: 560px; }
+}
+@media (min-width: 900px) {
+  .bar { padding: 26px 6vw 0; }
+  .hero { min-height: min(94vh, 900px); justify-content: center; gap: 34px; padding: 120px 6vw 80px; }
+  .hero picture img { object-position: 100% 40%; }
+  .name { font-size: clamp(96px, 11vw, 150px); }
+  .hero::after { background: linear-gradient(90deg, rgba(7, 11, 22, 0.92) 0%, rgba(7, 11, 22, 0.66) 32%, rgba(7, 11, 22, 0) 60%),
+    linear-gradient(to bottom, rgba(7, 11, 22, 0) 70%, var(--ink) 100%); }
+  .hero-top, .hero-bottom { max-width: 520px; }
+  .lede { max-width: 30ch; font-size: 20px; }
+  .stores { flex-direction: row; flex-wrap: wrap; }
+  .btn.minor { min-height: 56px; padding: 0 26px; border-radius: 14px; font-size: 17px; font-weight: 600; color: var(--text); text-decoration: none;
+    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.24); }
+  .section { padding: 120px 6vw; }
+  .play { grid-template-columns: 380px 1fr; align-items: center; gap: 72px; }
+  .phone { width: 340px; }
+  .shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 1080px; margin: 0 auto; padding: 0; overflow: visible; }
+  .shots img { width: 100%; }
+  .swipe { display: none; }
+  .features { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .get .stores { justify-content: center; }
+  .qr { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 34px; color: var(--muted); font-size: 15px; text-align: left; }
+  .qr img { width: 112px; height: 112px; border-radius: 12px; background: #fff; padding: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+</style>
+<script src="/assets/store.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Triggerwave</h1>
-        <p class="tagline">Game studio</p>
-        <div class="links">
-            <a href="/privacy.html">Privacy Policy</a>
-        </div>
+
+<header class="bar">
+  <a class="studio" href="/">TriggerWave</a>
+  <nav><a href="#play">The game</a><a href="/privacy_magnitude.html">Privacy</a></nav>
+</header>
+
+<main>
+  <section class="hero">
+    <picture>
+      <source media="(min-width: 900px)" srcset="/assets/hero-wide-1280.webp 1280w, /assets/hero-wide.webp 2048w" sizes="100vw">
+      <img src="/assets/hero-tall.webp" width="1080" height="1920" alt="Titan, a kaiju armoured in glowing blue crystal, turning its atomic breath on a city at dusk" fetchpriority="high">
+    </picture>
+    <div class="hero-top">
+      <p class="kicker">Kaiju Destruction</p>
+      <h1 class="name"><span class="sr">Magnitude: Kaiju Destruction</span><span aria-hidden="true">Magnitude</span></h1>
+      <p class="lede">Giant monster city smash. Stomp cities, swat jets and grow huge.</p>
     </div>
+    <div class="hero-bottom">
+      <div class="stores">
+        <a class="btn alt" data-store="play" href="https://play.google.com/store/apps/details?id=com.triggerwave.magnitude">Get it on Google Play</a>
+        <a class="btn alt" data-store="app" href="https://apps.apple.com/app/id6817035753">Get it on the App Store</a>
+      </div>
+      <p class="note" data-ios-note hidden>On iPhone it's in Australia, Canada and New Zealand for now. The rest of the world is coming soon.</p>
+      <p class="fine">Free to play · In-app purchases</p>
+    </div>
+  </section>
+
+  <section class="section" id="play">
+    <div class="play">
+      <div class="phone">
+        <video data-loop muted loop playsinline preload="none" poster="/assets/smash.webp" aria-label="Gameplay: the kaiju leaps into a city block, knocks down a tower and throws a helicopter at a gunship">
+          <source data-src="/assets/smash.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div>
+        <h2>Every block makes you <em>bigger</em></h2>
+        <p>Wade ashore as a small monster and bring the city down, block by block. Every building you flatten makes you bigger, and the bigger you grow, the harder the military hits back. Wreck enough of the city and a portal tears open in the sky: reach it before they take you down.</p>
+        <ul class="stats">
+          <li><b>30</b><span>Levels</span></li>
+          <li><b>6</b><span>Regions</span></li>
+          <li><b>6</b><span>Bosses</span></li>
+          <li><b>15</b><span>Kaiju</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Screenshots">
+    <div class="shots">
+      <img src="/assets/shots/1.webp" width="1280" height="720" loading="lazy" alt="Wreck everything: cities that really come apart">
+      <img src="/assets/shots/2.webp" width="1280" height="720" loading="lazy" alt="Start small, grow huge: every block you flatten makes you bigger">
+      <img src="/assets/shots/3.webp" width="1280" height="720" loading="lazy" alt="Atomic breath: sweep the streets, shoot down the air force">
+      <img src="/assets/shots/4.webp" width="1280" height="720" loading="lazy" alt="Real gameplay, with the controls on screen">
+      <img src="/assets/shots/5.webp" width="1280" height="720" loading="lazy" alt="Fifteen kaiju: earn a new one in every region you conquer">
+      <img src="/assets/shots/6.webp" width="1280" height="720" loading="lazy" alt="A boss guards every capital">
+      <img src="/assets/shots/7.webp" width="1280" height="720" loading="lazy" alt="Grab a helicopter and throw it at the next one">
+      <img src="/assets/shots/8.webp" width="1280" height="720" loading="lazy" alt="Six regions: Metro, the Bay, the Desert, the Alps, the Lagoon and Neon">
+    </div>
+    <p class="swipe">Swipe for more</p>
+  </section>
+
+  <section class="section">
+    <ul class="features">
+      <li><h3>Cities that come apart</h3><p>Towers crack, topple and collapse into rubble, dust and fire.</p></li>
+      <li><h3>Stomp, smash, breathe</h3><p>Charge a super stomp and sweep the streets with your atomic breath.</p></li>
+      <li><h3>Grab and throw</h3><p>Snatch helicopters and jets out of the sky and hurl them at the next one.</p></li>
+      <li><h3>A world tour</h3><p>Fishing villages, snowbound chalets, canal cities and neon towers, with a boss guarding every capital.</p></li>
+      <li><h3>A new city every day</h3><p>Conquer a region to open its daily city: the same for everyone, with its own leaderboard.</p></li>
+      <li><h3>Kaiju to collect</h3><p>Earn a new kaiju for every region you conquer, each with its own look and breath.</p></li>
+    </ul>
+  </section>
+
+  <section class="section" style="padding-top: 0; padding-bottom: 0">
+    <a class="trailer" href="https://youtu.be/3m-8fRocE5Q" target="_blank" rel="noopener">
+      <img src="/assets/trailer.webp" width="1280" height="720" loading="lazy" alt="">
+      <span class="label"><i aria-hidden="true"></i>Watch the trailer</span>
+    </a>
+  </section>
+
+  <section class="section get" id="get">
+    <h2>Get <em>Magnitude</em></h2>
+    <p>Free on iPhone and Android.</p>
+    <div class="stores">
+      <a class="btn alt" data-store="play" href="https://play.google.com/store/apps/details?id=com.triggerwave.magnitude">Get it on Google Play</a>
+      <a class="btn alt" data-store="app" href="https://apps.apple.com/app/id6817035753">Get it on the App Store</a>
+    </div>
+    <p class="note" data-ios-note hidden>On iPhone it's in Australia, Canada and New Zealand for now. The rest of the world is coming soon.</p>
+    <div class="qr"><img src="/assets/qr-magnitude.svg" width="112" height="112" loading="lazy" alt="QR code for triggerwave.com/magnitude"><span>Or scan this with your phone:<br>it opens the right store.</span></div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 TriggerWave LLC</span>
+  <a href="/privacy_magnitude.html">Magnitude privacy policy</a>
+  <a href="/privacy.html">Privacy policy</a>
+</footer>
+
+<script>
+(function () {
+  var tw = window.TW; if (!tw) return;
+  var p = tw.platform;
+  document.documentElement.setAttribute("data-platform", p);
+  // the store buttons: the referrer on Google Play's; on a phone, its own store first and bright, the other a link
+  document.querySelectorAll(".stores").forEach(function (box) {
+    var play = box.querySelector('[data-store="play"]'), app = box.querySelector('[data-store="app"]');
+    play.href = tw.play("website");
+    var mine = p === "ios" ? app : play, other = p === "ios" ? play : app;
+    box.insertBefore(mine, box.firstChild);
+    mine.className = "btn go";
+    other.className = "btn " + (p === "desktop" ? "alt" : "minor");
+    if (p !== "desktop") other.textContent = p === "ios" ? "Also on Google Play" : "Also on the App Store";
+  });
+  // where the App Store has it, until it has it everywhere (not on Android: its store has it everywhere)
+  if (!tw.iosEverywhere && p !== "android") document.querySelectorAll("[data-ios-note]").forEach(function (n) { n.hidden = false; });
+  // the gameplay loop: loaded and played once it's nearly on screen; left on its first frame if motion is reduced
+  var v = document.querySelector("[data-loop]");
+  if (v && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) { v.pause(); return; }
+        var s = v.querySelector("source[data-src]");
+        if (s) { s.src = s.getAttribute("data-src"); s.removeAttribute("data-src"); v.load(); }
+        var go = v.play(); if (go && go.catch) go.catch(function () {});
+      });
+    }, { rootMargin: "200px 0px" });
+    io.observe(v);
+  }
+})();
+</script>
 </body>
 </html>
