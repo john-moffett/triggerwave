@@ -24,7 +24,7 @@ a { color: #7b8aff; }
 <h1>Privacy Policy</h1>
 <p class="date">Effective date: October 29, 2026</p>
 
-<p>Triggerwave ("we", "us", "our") operates the mobile game <strong>Pocket Ponds</strong> (the "Game"). This page describes what data is collected when you use the Game, why, who it is shared with, and the choices you have. It covers Pocket Ponds 1.2 and later for iPhone and iPad; section 11 covers earlier versions.</p>
+<p>Triggerwave ("we", "us", "our") operates the mobile game <strong>Pocket Ponds</strong> (the "Game"). This page describes what data is collected when you use the Game, why, who it is shared with, and the choices you have. It covers Pocket Ponds 1.2 and later for iPhone, iPad and Android; section 11 covers earlier versions.</p>
 
 <h2>1. Data We Collect</h2>
 <p>Pocket Ponds keeps your ponds on our server, so your game is saved and your friends can visit. The Game creates an account for you the first time you play. It never asks for your name, email address, phone number, contacts or location, and it has no ads and no tracking.</p>
@@ -32,14 +32,14 @@ a { color: #7b8aff; }
 <ul>
 <li><strong>Your account ID and username</strong>: an identifier the Game creates for your account, and the username you choose. Used to save your game and so friends can find and visit you.</li>
 <li><strong>Your game</strong>: your ponds, koi and decorations and the names you give them; your koins, credits, level and awards; your friends list; likes, visits, gifts and in-game mail between you and other players; and your Koi Log of the breeds you've owned. Used to save and load your game and for visits between players.</li>
-<li><strong>Purchase history</strong>: which packs you bought, with the App Store's transaction IDs and dates. Used to deliver each purchase exactly once, and to add any that weren't delivered.</li>
-<li><strong>Notification token</strong>: if you allow notifications, the token Apple gives the Game for your device. Used to tell you when someone likes your pond or sends you a koi.</li>
+<li><strong>Purchase history</strong>: which packs you bought, with the store's transaction IDs (the App Store's, or Google Play's purchase tokens) and dates. Used to deliver each purchase exactly once, and to add any that weren't delivered.</li>
+<li><strong>Notification token</strong> (iPhone and iPad): if you allow notifications, the token Apple gives the Game for your device. Used to tell you when someone likes your pond or sends you a koi. The Android version doesn't use one.</li>
 </ul>
 <p>To see how the Game is played, so we can fix problems and improve it, the Game also sends the following to Google Analytics for Firebase and Firebase Crashlytics. In the EEA, the UK and Switzerland, and wherever the Game can't tell your country, it sends nothing until you say yes when it asks:</p>
 <ul>
 <li><strong>How you play</strong>: game events such as playing the tutorial, opening the shops, buying, breeding, selling and catching koi, levels, awards, daily gifts and visits to other ponds, with the koi breeds and prices involved, and when and how often you play. Never your username, your account ID, or the names you give ponds and koi.</li>
 <li><strong>Crash reports</strong>: what the Game was doing when it crashed or hit an error, with the device model, operating system and app version.</li>
-<li><strong>An app-installation identifier</strong>: an identifier Google's services give the Game on your device, to count players and sessions. It isn't your device's advertising identifier, which the Game doesn't use.</li>
+<li><strong>An app-installation identifier</strong>: an identifier Google's services give the Game on your device, to count players and sessions. It isn't your device's advertising identifier, which the Game doesn't use on any device.</li>
 <li><strong>Approximate location</strong>: your country or region, which Google infers from your IP address.</li>
 </ul>
 <p>Anyone can turn analytics off, or on again, at any time: open <strong>Visit Ponds</strong> in the Game, tap your username and choose <strong>Analytics</strong>. While it's off, the Game sends nothing to Google Analytics or Crashlytics, and turning it off resets the Game's analytics identifier.</p>
@@ -51,23 +51,23 @@ a { color: #7b8aff; }
 <p>When other players visit your pond, they can see your username, your ponds, your koi and the names you give them. Your pond may also appear among featured and random ponds, where usernames are partly hidden. Friends add each other by username. Please don't use your real name or other personal details in your username or in pond and koi names.</p>
 
 <h2>4. Data Stored on Your Device</h2>
-<p>The Game keeps a copy of your game and your settings on your device. Your sign-in is kept in the device's keychain, so it moves to a new iPhone or iPad when you restore it from a backup. Reminders, such as when your koi are hungry, are scheduled on the device. Pond photos are saved to your photo library or shared only when you choose to, and are never sent to us.</p>
+<p>The Game keeps a copy of your game and your settings on your device. On iPhone and iPad, your sign-in is kept in the device's keychain, so it moves to a new iPhone or iPad when you restore it from a backup. On Android, it's kept encrypted on the device, with a copy in Google's Block Store, part of Google Play services, so it moves to a new phone when you copy your data across while setting it up, or restore a backup that Google has end-to-end encrypted. Reminders, such as when your koi are hungry, are scheduled on the device. Pond photos are saved to your photo library or shared only when you choose to, and are never sent to us.</p>
 
 <h2>5. Third-Party Services</h2>
 <p>We share data only with these service providers, which process it to run the Game, each under its own privacy policy:</p>
 <ul>
 <li><strong>Amazon Web Services</strong>: hosts our server and its database, which hold the data in section 1. <a href="https://aws.amazon.com/privacy/">AWS Privacy Notice</a></li>
-<li><strong>Apple</strong>: processes in-app purchases and delivers push notifications. <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
-<li><strong>Google</strong>: Google Analytics for Firebase and Firebase Crashlytics receive the analytics and crash reports described in section 1, and give us statistics and crash reports from them. Their advertising features are switched off. <a href="https://firebase.google.com/support/privacy">Privacy and Security in Firebase</a>, <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+<li><strong>Apple</strong>: processes in-app purchases on iPhone and iPad and delivers push notifications. <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
+<li><strong>Google</strong>: Google Play processes in-app purchases on Android, and our server confirms each one with Google Play; Google Play services' Block Store keeps the copy of your Android sign-in described in section 4. Google Analytics for Firebase and Firebase Crashlytics receive the analytics and crash reports described in section 1, and give us statistics and crash reports from them. Their advertising features are switched off. <a href="https://firebase.google.com/support/privacy">Privacy and Security in Firebase</a>, <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
 <li><strong>Unity Technologies</strong>: the Game is built with Unity and handles purchases with Unity In-App Purchasing, which sends Unity technical diagnostics about the purchasing library itself, such as errors and how long store requests take. It does not send your account, username or payment details. Unity's analytics, crash reporting and performance reporting are switched off. <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a></li>
 </ul>
 <p>We may also disclose information if the law requires it, or to protect the rights and safety of our players and ourselves.</p>
 
 <h2>6. In-App Purchases</h2>
-<p>In-app purchases are processed entirely by the App Store, under Apple's terms and privacy policy. We receive confirmation of what was bought, with its transaction ID and date, never your payment information.</p>
+<p>In-app purchases are processed entirely by the App Store on iPhone and iPad, and by Google Play on Android, under their own terms and privacy policies. We receive confirmation of what was bought, with its transaction ID and date, never your payment information.</p>
 
-<h2>7. Apple</h2>
-<p>Apple may share anonymous crash reports and app analytics with us if you have chosen to share them with app developers in your device settings. If you test the Game through TestFlight, Apple may also share crash reports, usage information and any feedback you choose to send with us, as described in Apple's TestFlight terms. We use this information only to fix problems and improve the Game.</p>
+<h2>7. Apple and Google</h2>
+<p>Apple may share anonymous crash reports and app analytics with us if you have chosen to share them with app developers in your device settings. If you test the Game through TestFlight, Apple may also share crash reports, usage information and any feedback you choose to send with us, as described in Apple's TestFlight terms. On Android, Google Play may share crash reports and performance statistics with us from devices whose owners have chosen to share usage and diagnostics with Google. We use this information only to fix problems and improve the Game.</p>
 
 <h2>8. Children's Privacy</h2>
 <p>The Game doesn't ask any player, of any age, for personal information such as a name, email address or location, and it has no ads or tracking. Its analytics never include names, usernames or account IDs. Other players see usernames and pond and koi names, so please help children choose ones that don't identify them. A parent or guardian can contact us to review or delete a child's account.</p>
@@ -87,7 +87,7 @@ a { color: #7b8aff; }
 <p>Where the GDPR applies, we process your account's data to provide the Game you chose to play, and keep logs in our legitimate interest in keeping it working and secure.</p>
 
 <h2>11. Earlier Versions</h2>
-<p>Versions of Pocket Ponds before 1.2, which some older iPhones and iPads still run, also let you sign in with Facebook to find friends, through Facebook's software in the Game and under <a href="https://www.facebook.com/privacy/policy/">Meta's Privacy Policy</a>. Version 1.2 removed Facebook. If you signed in with Facebook in an earlier version, our server may still hold your Facebook user ID, linked to your account; it is deleted with your account.</p>
+<p>Versions of Pocket Ponds before 1.2, which some older phones and tablets still run, also let you sign in with Facebook to find friends, through Facebook's software in the Game and under <a href="https://www.facebook.com/privacy/policy/">Meta's Privacy Policy</a>. Version 1.2 removed Facebook. If you signed in with Facebook in an earlier version, our server may still hold your Facebook user ID, linked to your account; it is deleted with your account.</p>
 
 <h2>12. Security and International Transfers</h2>
 <p>Data is sent over encrypted connections and stored with Amazon Web Services in the United States. Analytics and crash reports are processed by Google, in the United States and other countries.</p>
