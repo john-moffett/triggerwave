@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "weights": { "free_core": 1, "hard": 1, "metered": 1 },
+  "wallsOff": false
+}
