@@ -7,6 +7,9 @@ google.com, pub-1371732685560560, DIRECT, f08c47fec0942fa0
 # Meta Audience Network (bidding in LevelPlay; the business portfolio's ID)
 facebook.com, 1663386065140530, DIRECT, c3e20eee3f780d68
 
+# Pangle (bidding in LevelPlay; the TriggerWave account's ID)
+pangleglobal.com, 5046933, DIRECT
+
 # Unity LevelPlay: ironSource Ads, and the resellers it authorizes
 ironsrc.com, 688039, DIRECT
 media.net, 8CUH2L333, RESELLER
